@@ -4,7 +4,7 @@
   "description": "Test Json",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "hello":"node helloworld.js" 
   },
   "author": "Mynor Jared Gonzalez Benavente",
   "license": "ISC"
