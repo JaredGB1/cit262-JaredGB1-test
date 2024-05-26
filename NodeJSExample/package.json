@@ -4,8 +4,12 @@
   "description": "Test Json",
   "main": "index.js",
   "scripts": {
-    "hello":"node helloworld.js" 
+    "test": "jest",
+    "hello": "node helloworld.js"
   },
   "author": "Mynor Jared Gonzalez Benavente",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
