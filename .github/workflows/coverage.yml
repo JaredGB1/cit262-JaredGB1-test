@@ -17,7 +17,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           coverage-file: ./NodeJSExample/coverage/coverage-final.json
-          base-coverage-file: ./NodeJSExample/coverage/report.json
           threshold: 90
           annotations: coverage
           skip-step: all
