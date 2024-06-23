@@ -39,11 +39,4 @@ jobs:
             - name: Run tests with coverage
               run: npm test -- --coverage
               working-directory: ./NodeJSExample  # Ensure the tests are run from the correct directory
-
-            - name: Coverage report
-              uses: ArtiomTr/jest-coverage-report-action@v2
-              with:
-               github-token: ${{ secrets.GITHUB_TOKEN }}
-               working-directory: ./NodeJSExample
-               coverage-file: ./coverage/coverage-final.json
                 
