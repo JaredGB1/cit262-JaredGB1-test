@@ -18,12 +18,12 @@ jobs:
           node-version: '14'
       
       - name: Change directory to NodeJSExample
-        uses: cd NodeJSExample
+        uses: ./NodeJSExample
         
       - name: Install dependencies
         run: npm install
         working-directory: ./NodeJSExample
-        
+
       - name: Run tests with coverage
         run: npm test -- --coverage
         working-directory: ./NodeJSExample
