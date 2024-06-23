@@ -11,4 +11,4 @@ jobs:
             - uses: actions/checkout@v3
             - uses: ArtiomTr/jest-coverage-report-action@v2
               with: 
-                working-directory: ./NodeJSExample  
+                uses: ./NodeJSExample/package.json
