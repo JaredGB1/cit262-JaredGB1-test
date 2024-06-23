@@ -11,23 +11,11 @@ jobs:
       
       - name: Check out repository code
         uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
         
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./NodeJSExample
-        
-      - name: Run tests with coverage
-        run: npm test -- --coverage
-        working-directory: ./NodeJSExample
-
       - name: Coverage report 
         uses: ArtiomTr/jest-coverage-report-action@v2
         with:
+          working-directory: ./NodeJSExample
           github-token: ${{ secrets.GITHUB_TOKEN }}
           coverage-file: ./NodeJSExample/coverage/lcov-report/index.html
 
