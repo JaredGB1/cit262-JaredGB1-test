@@ -8,7 +8,7 @@ jobs:
     coverage:
         runs-on: ubuntu-latest
         steps:
+            - uses: ./NodeJSExample/package.json
             - uses: actions/checkout@v3
             - uses: ArtiomTr/jest-coverage-report-action@v2
-              with: 
-                uses: ./NodeJSExample/package.json
+                
