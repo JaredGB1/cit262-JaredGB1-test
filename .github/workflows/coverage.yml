@@ -16,8 +16,6 @@ jobs:
         uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           working-directory: ./NodeJSExample
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          coverage-file: ./coverage/lcov-report/index.html
 
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
