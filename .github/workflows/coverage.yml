@@ -15,9 +15,12 @@ jobs:
       - name: Coverage report 
         uses: ArtiomTr/jest-coverage-report-action@v2
         with:
-          working-directory: ./NodeJSExample
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          coverage-file: ./coverage/coverage-final.json
+          coverage-file: ./NodeJSExample/coverage/coverage-final.json
+          base-coverage-file: ./NodeJSExample/coverage/report.json
+          threshold: 90
+          annotations: coverage
+          skip-step: all
 
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
