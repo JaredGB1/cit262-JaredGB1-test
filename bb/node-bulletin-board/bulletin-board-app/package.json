@@ -6,7 +6,7 @@
   "author": "Ryan Chenkie, Jason Lam",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.1030.0",
+    "aws-sdk": "^2.1659.0",
     "bootstrap": "^3.3.6",
     "ejs": "^3.1.10",
     "express": "^4.13.3",

@@ -2,7 +2,7 @@ new Vue({
   el: '#events',
 
   data: {
-    event: { id: '', title: '', detail: '', date: '' },
+    event: {id: '', title: '', detail: '', date: '' },
     events: []
   },
 
