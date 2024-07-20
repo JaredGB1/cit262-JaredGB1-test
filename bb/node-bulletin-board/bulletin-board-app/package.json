@@ -6,8 +6,9 @@
   "author": "Ryan Chenkie, Jason Lam",
   "license": "MIT",
   "dependencies": {
+    "aws-sdk": "^2.1030.0",
     "bootstrap": "^3.3.6",
-    "ejs": "^2.3.4",
+    "ejs": "^3.1.10",
     "express": "^4.13.3",
     "morgan": "^1.6.1",
     "vue": "^1.0.10",
@@ -16,10 +17,12 @@
   "devDependencies": {
     "body-parser": "^1.14.1",
     "errorhandler": "^1.4.2",
+    "jest": "^29.7.0",
     "method-override": "^2.3.5",
     "morgan": "^1.6.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest"
   }
 }
