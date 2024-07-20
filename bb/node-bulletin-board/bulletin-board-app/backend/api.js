@@ -47,21 +47,65 @@ ddb.createTable(params, function (err, data) {
   }
 });
 
+exports.fetchEvents = function (req, res) {
+  const params = {
+    TableName: 'Events'
+  };
+
+  dynamodb.scan(params, function (err, data) {
+    if (err) {
+      console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
+      res.status(500).send(err);
+    } else {
+      res.json(data.Items);
+    }
+  });
+};
+
+exports.addEvent = function (req, res) {
+  const event = req.body;
+  event.id = Date.now().toString();
+
+  const params = {
+    TableName: 'Events',
+    Item: event
+  };
+
+  dynamodb.put(params, function (err, data) {
+    if (err) {
+      console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+      res.status(500).send(err);
+    } else {
+      res.status(201).json(event);
+    }
+  });
+};
+exports.deleteEvent = function (req, res) {
+  const eventId = req.params.eventId;
+  const params = {
+    TableName: 'Events',
+    Key: {
+      'id': eventId
+    }
+  };
+
+  dynamodb.delete(params, function (err, data) {
+    if (err) {
+      console.error("Unable to delete item. Error JSON:", JSON.stringify(err, null, 2));
+      res.status(500).send(err);
+    } else {
+      res.status(204).send();
+    }
+  });
+};
 exports.events = function (req, res) {
   if (req.method === 'GET') {
-    const params = {
-      TableName: 'Events'
-    };
-
-    dynamodb.scan(params, function (err, data) {
-      if (err) {
-        console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
-        res.status(500).send(err);
-      } else {
-        res.json(data.Items);
-      }
-    });
-  } 
+    exports.fetchEvents(req, res);
+  } else if (req.method === 'POST') {
+    exports.addEvent(req, res);
+  } else if (req.method === 'DELETE') {
+    exports.deleteEvent(req, res);
+  }
 };
 
 exports.event = function (req, res) {
