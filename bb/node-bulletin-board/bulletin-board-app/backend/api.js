@@ -4,49 +4,6 @@ const httpConstants = require('http2').constants;
 const AWS = require('aws-sdk');
 AWS.config.update({region: 'us-east-1'});
 let dynamodb = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
-var params = {
-  AttributeDefinitions: [
-    {
-      AttributeName: "id",
-      AttributeType: "S",
-    },
-    {
-      AttributeName: "title",
-      AttributeType: "S",
-    },
-    {
-      AttributeName: "detail",
-      AttributeType: "S",
-    },
-    {
-      AttributeName: "date",
-      AttributeType: "S",
-    },
-  ],
-  KeySchema: [
-    {
-      AttributeName: "id",
-      KeyType: "HASH",
-    },
-  ],
-  ProvisionedThroughput: {
-    ReadCapacityUnits: 5,
-    WriteCapacityUnits: 5,
-  },
-  TableName: "Events",
-  StreamSpecification: {
-    StreamEnabled: false,
-  },
-};
-
-ddb.createTable(params, function (err, data) {
-  if (err) {
-    console.log("Error", err);
-  } else {
-    console.log("Table Created", data);
-  }
-});
-
 exports.fetchEvents = function (req, res) {
   const params = {
     TableName: 'Events'
@@ -98,6 +55,7 @@ exports.deleteEvent = function (req, res) {
     }
   });
 };
+
 exports.events = function (req, res) {
   if (req.method === 'GET') {
     exports.fetchEvents(req, res);

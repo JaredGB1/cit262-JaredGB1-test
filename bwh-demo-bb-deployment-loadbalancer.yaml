@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bwh-demo-bb-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bb-web
+  template:
+    metadata:
+      labels:
+        app: bb-web
+    spec:
+      containers:
+      - name: bb-site
+        image: jaredgb/cit262-jaredgb1-bb:sha-d536783
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bwh-demo-bb-loadbalancer
+  namespace: default
+spec:
+  type: LoadBalancer
+  selector:
+    app: bb-web
+  ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 8080

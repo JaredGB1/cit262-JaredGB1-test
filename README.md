@@ -1,2 +1,3 @@
 # cit262-JaredGB1-test
-# Adding text to check pull request coverage test
+# Node bulletin board app.
+# Docker-image.yml pushes the container images into dockerhub.
