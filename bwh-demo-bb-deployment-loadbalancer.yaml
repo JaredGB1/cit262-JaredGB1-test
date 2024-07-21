@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: bb-site
-        image: jaredgb/cit262-jaredgb1-bb:sha-d536783
+        image: jaredgb/cit262-jaredgb1-bb:sha-1f39a92
 ---
 apiVersion: v1
 kind: Service
